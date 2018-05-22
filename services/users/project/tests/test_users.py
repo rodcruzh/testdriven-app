@@ -3,6 +3,7 @@ import unittest
 
 from project.tests.base import BaseTestCase
 
+
 class TestUserService(BaseTestCase):
     """Tests for the Users Service."""
 
@@ -14,5 +15,6 @@ class TestUserService(BaseTestCase):
         self.assertIn('pong!', data['message'])
         self.assertIn('success', data['status'])
 
-if __name__ = '__main__':
+
+if __name__ == '__main__':
     unittest.main()

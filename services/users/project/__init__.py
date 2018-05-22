@@ -1,5 +1,6 @@
 import os
 import datetime
+import sys
 from flask import Flask, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
@@ -10,9 +11,11 @@ app = Flask(__name__)
 # set config
 app_settings = os.getenv('APP_SETTINGS')
 app.config.from_object(app_settings)
+print(app.config, file=sys.stderr)
 
 # instantiate the db
 db = SQLAlchemy(app)
+
 
 # model
 class User(db.Model):
@@ -25,6 +28,7 @@ class User(db.Model):
     def __init__(self, username, email):
         self.username = username
         self.email = email
+
 
 # routes
 @app.route('/users/ping', methods=['GET'])

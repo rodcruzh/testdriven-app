@@ -3,7 +3,9 @@ import unittest
 from flask.cli import FlaskGroup
 from project import app, db
 
+
 cli = FlaskGroup(app)
+
 
 @cli.command()
 def recreate_db():
@@ -19,6 +21,7 @@ def test():
     if result.wasSuccessful():
         return 0
     return 1
+
 
 if __name__ == '__main__':
     cli()
